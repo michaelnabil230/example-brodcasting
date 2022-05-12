@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/realtime-with-vue', 'realtime-with-vue');
+Route::view('/realtime-with-javascript', 'realtime-with-javascript');
+
+Route::get('/test-broadcast', function () {
+    event(new \App\Events\SampleEvent());
+    return 'Event fired.';
 });
